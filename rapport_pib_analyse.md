@@ -1,5 +1,8 @@
 # Rapport d'Analyse Approfondie du PIB International
 
+A/Kawtar
+B/![pic](https://github.com/user-attachments/assets/f827472e-d6f8-420a-a907-edf6a0a58c76)
+
 ## 1. Introduction et Contexte
 
 ### 1.1 Objectif de l'analyse
