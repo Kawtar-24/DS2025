@@ -1,1 +1,67 @@
+# ===== Analyse descriptive avec graphiques automatiques =====
 
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from google.colab import files
+
+%matplotlib inline
+
+# 1️⃣ Upload du fichier
+print("⚡ Veuillez uploader votre fichier CSV ou Excel")
+uploaded = files.upload()
+
+# 2️⃣ Lecture du fichier
+for filename in uploaded.keys():
+    print(f"Fichier uploadé : {filename}")
+    if filename.endswith('.csv'):
+        df = pd.read_csv(filename)
+    elif filename.endswith(('.xls', '.xlsx')):
+        df = pd.read_excel(filename)
+    else:
+        raise Exception("Format non supporté. Utilisez CSV ou Excel.")
+
+# 3️⃣ Aperçu rapide
+print("=== 5 premières lignes ===")
+display(df.head())
+
+# 4️⃣ Statistiques descriptives
+print("\n=== Statistiques descriptives ===")
+display(df.describe())
+
+# 5️⃣ Histogrammes pour toutes les colonnes numériques
+num_cols = df.select_dtypes(include='number').columns
+for col in num_cols:
+    plt.figure(figsize=(8,4))
+    sns.histplot(df[col], kde=True, bins=20)
+    plt.title(f"Histogramme de {col}")
+    plt.xlabel(col)
+    plt.ylabel("Fréquence")
+    plt.show()
+
+# 6️⃣ Boxplots pour détecter les valeurs aberrantes
+for col in num_cols:
+    plt.figure(figsize=(8,4))
+    sns.boxplot(x=df[col])
+    plt.title(f"Boxplot de {col}")
+    plt.show()
+
+# 7️⃣ Graphiques d'évolution par année si colonne 'Année' existe
+if 'Année' in df.columns:
+    # On trace toutes les colonnes numériques contre l'année
+    for col in num_cols:
+        if col != 'Année':
+            plt.figure(figsize=(10,5))
+            sns.lineplot(data=df, x='Année', y=col, marker='o')
+            plt.title(f"Évolution de {col} par année")
+            plt.xlabel("Année")
+            plt.ylabel(col)
+            plt.show()
+
+# 8️⃣ Matrice de corrélation
+plt.figure(figsize=(12,8))
+sns.heatmap(df[num_cols].corr(), annot=True, cmap='coolwarm', fmt=".2f")
+plt.title("Matrice de corrélation")
+plt.show()
+
+print("✅ Analyse descriptive et graphiques terminés")
