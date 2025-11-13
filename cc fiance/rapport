@@ -37,7 +37,7 @@ Les études s’accordent sur l’importance de la vaccination et des mesures sa
 
 ### 2.4 Limites identifiées
 - Données incomplètes pour certaines régions rurales.  
-- Manque de suivi longitudinal pour certaines maladies émergentes.  
+- Manque de suivi longitudinal pour certaines maladies émergentes.
 
 ---
 
@@ -60,7 +60,7 @@ Les études s’accordent sur l’importance de la vaccination et des mesures sa
 
 ### 3.4 Interprétation
 - Les campagnes de vaccination ont un effet direct sur la baisse des maladies infantiles.  
-- L’urbanisation et la densité démographique influencent certaines maladies.  
+- L’urbanisation et la densité démographique influencent certaines maladies.
 
 ---
 
@@ -114,6 +114,4 @@ Le Maroc a connu des progrès significatifs dans la lutte contre les maladies in
 
 ## 8. Annexes
 - Graphiques des tendances annuelles (à générer via Python ou Excel).  
-- Codes d’analyse (Python / Colab) pour visualiser les données.  
-
-
+- Codes d’analyse (Python / Colab) pour visualiser les données.
